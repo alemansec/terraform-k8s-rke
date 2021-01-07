@@ -35,7 +35,7 @@ For terraform 0.13 or above users, manual installation is not required anymore. 
 
   cd terraform/dev/ # dev || staging || production
 
-  vi variables.tf
+  vi main.tf
 
   terraform init
   terraform plan

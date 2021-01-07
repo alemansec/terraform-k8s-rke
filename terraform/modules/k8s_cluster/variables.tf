@@ -29,21 +29,25 @@ variable "k8s_nodes" {
     description = "target hosts' IP addresses ; cluster nodes will be provisionned here"
     default = [
 
-#        {
-#            address = "10.75.13.1"
-#            name    = "node01"
-#        },
-#        {
-#            address = "10.75.13.2"
-#            name    = "node02"
-#        },
-#        {
-#            address = "10.75.13.3"
-#            name    = "node03"
-#        },
         {
-            address = "127.0.0.1"
-            name    = "localnode"
+            address = "10.75.13.1"
+            name    = "node01"
+        },
+        {
+            address = "10.75.13.2"
+            name    = "node02"
+        },
+        {
+            address = "10.75.13.3"
+            name    = "node03"
+        },
+        {
+            address = "10.75.13.4"
+            name    = "node04"
+        },
+        {
+            address = "10.75.13.5"
+            name    = "node05"
         }
 
     ]
