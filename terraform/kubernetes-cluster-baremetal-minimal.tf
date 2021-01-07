@@ -12,22 +12,20 @@ terraform {
 }
 
 provider "rke" {
+    debug = var.rancher_rke_debug
     log_file = "rke_debug.log"
 }
 
-resource "rke_cluster" "LocalTestCluster" {
-  nodes {
-    address = "127.0.0.1"
-    user    = "k8s"
-    role    = ["controlplane", "worker", "etcd"]
+resource "rke_cluster" "LocalPocCluster" {
+  dynamic nodes {
+    for_each = var.k8s_nodes
+    content {
+      address = nodes.value.address
+      node_name = nodes.value.name
+      user    = var.host_provisionning_user
+      role    = ["controlplane", "worker", "etcd"]
+    }
   }
-# second node :
-#  nodes {
-#    address = "1.2.3.4"
-#    user    = "k8s"
-#    role    = ["controlplane", "worker", "etcd"]
-#  }
-
 
   #########################################################
   # Network(CNI) - supported: flannel/calico/canal/weave
@@ -54,7 +52,7 @@ resource "rke_cluster" "LocalTestCluster" {
 ###############################################################################
 resource "local_file" "kube_cluster_yaml" {
   filename = "${path.root}/kube_config_cluster.yml"
-  content  = rke_cluster.LocalTestCluster.kube_config_yaml
+  content  = rke_cluster.LocalPocCluster.kube_config_yaml
 }
 
 
