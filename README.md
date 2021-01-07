@@ -24,7 +24,7 @@ https://github.com/rancher/terraform-provider-rke
 For terraform 0.13 or above users, manual installation is not required anymore. Provider will be downloaded by terraform init from terraform rke registry.
 
 
-# minimal terraaform cluster definition
+# minimal terraform cluster definition
 
 ```
 # minimal.tf
@@ -69,12 +69,13 @@ resource "local_file" "kube_cluster_yaml" {
 # local test
 
 ```
-  # 'k8s' user account will be used to provision k8s cluster on target local test machine:
+  # 'k8s' user account will be used to provision k8s cluster on target machine:
+  # i use 'localhost' during this test, will (obviously) later use multiple VM(s).
   sudo adduser --ingroup docker k8s
   ssh-copy-id k8s@localhost
 
   # run terraform
-  cd terraaform/ # where kubernetes-cluster-baremetal-minimal.tf resides
+  cd terraform/ # where kubernetes-cluster-baremetal-minimal.tf resides
 
   terraform init
   terraform plan
