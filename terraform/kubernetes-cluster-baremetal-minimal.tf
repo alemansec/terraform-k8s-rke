@@ -21,6 +21,25 @@ resource "rke_cluster" "LocalTestCluster" {
     user    = "k8s"
     role    = ["controlplane", "worker", "etcd"]
   }
+
+  #########################################################
+  # Network(CNI) - supported: flannel/calico/canal/weave
+  #########################################################
+  network {
+    plugin = "flannel"
+  }
+
+  ingress {
+    provider = "nginx"
+    options = {
+      proxy-buffer-size = "16k"
+      http2 = "true"
+    }
+  #  extra_args = {
+  #    default-ssl-certificate = "ingress-nginx/wildcard-ingress"
+  #  }
+  }
+
 }
 
 ###############################################################################
@@ -30,4 +49,5 @@ resource "local_file" "kube_cluster_yaml" {
   filename = "${path.root}/kube_config_cluster.yml"
   content  = rke_cluster.LocalTestCluster.kube_config_yaml
 }
+
 

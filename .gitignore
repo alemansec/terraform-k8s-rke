@@ -1,4 +1,6 @@
 .*.swp
 *~
 terraform/rke_debug.log
-
+terraform/.terraform
+terraform/*.tfstate*
+terraform/*.lock.hcl

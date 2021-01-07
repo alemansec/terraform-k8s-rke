@@ -69,8 +69,9 @@ resource "local_file" "kube_cluster_yaml" {
 # local test
 
 ```
-  # 'k8s' user account will be used to provision k8s cluster on target test machine:
+  # 'k8s' user account will be used to provision k8s cluster on target local test machine:
   sudo adduser --ingroup docker k8s
+  ssh-copy-id k8s@localhost
 
   # run terraform
   cd terraaform/ # where kubernetes-cluster-baremetal-minimal.tf resides
