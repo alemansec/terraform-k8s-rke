@@ -7,6 +7,7 @@ variable "host_provisionning_user" {
     type = string
     description = "the username passed to ssh when provisionning the cluster"
     default = "k8s"
+    sensitive = true
 }
 
 #
