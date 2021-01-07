@@ -21,6 +21,13 @@ resource "rke_cluster" "LocalTestCluster" {
     user    = "k8s"
     role    = ["controlplane", "worker", "etcd"]
   }
+# second node :
+#  nodes {
+#    address = "1.2.3.4"
+#    user    = "k8s"
+#    role    = ["controlplane", "worker", "etcd"]
+#  }
+
 
   #########################################################
   # Network(CNI) - supported: flannel/calico/canal/weave
