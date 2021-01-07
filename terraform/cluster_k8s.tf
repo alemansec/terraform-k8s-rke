@@ -1,20 +1,3 @@
-#
-# require rancher/rke provider:
-# https://www.terraform.io/docs/configuration/provider-requirements.html
-#
-terraform {
-  required_providers {
-    rke = {
-      source  = "rancher/rke"
-      version = "1.1.0"
-    }
-  }
-}
-
-provider "rke" {
-    debug = var.rancher_rke_debug
-    log_file = "rke_debug.log"
-}
 
 resource "rke_cluster" "LocalPocCluster" {
   dynamic nodes {

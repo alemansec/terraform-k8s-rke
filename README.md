@@ -33,7 +33,7 @@ For terraform 0.13 or above users, manual installation is not required anymore. 
   sudo adduser --ingroup docker k8s
   ssh-copy-id k8s@localhost
 
-  cd terraform/ # where kubernetes-cluster-baremetal-minimal.tf resides
+  cd terraform/ # where main.tf resides
 
   vi variables.tf
 
@@ -44,5 +44,11 @@ For terraform 0.13 or above users, manual installation is not required anymore. 
   terraform destroy
 ```
 
+
+# TODO
+
+- [ ] use remote state ( https://www.terraform.io/docs/state/remote.html )
+
+- [ ] use state locking ( https://www.terraform.io/docs/state/locking.html )
 
 
