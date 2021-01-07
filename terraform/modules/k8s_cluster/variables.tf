@@ -5,6 +5,7 @@
 #
 variable "host_provisionning_user" {
     type = string
+    description = "the username passed to ssh when provisionning the cluster"
     default = "k8s"
 }
 
@@ -13,6 +14,7 @@ variable "host_provisionning_user" {
 #
 variable "rancher_rke_debug" {
     type = bool
+    description = "wether to enable RKE debug or not"
     default = false
 }
 
@@ -24,6 +26,7 @@ variable "k8s_nodes" {
         address = string
         name    = string
     }))
+    description = "target hosts' IP addresses ; cluster nodes will be provisionned here"
     default = [
 
 #        {

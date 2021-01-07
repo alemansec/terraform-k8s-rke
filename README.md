@@ -33,7 +33,7 @@ For terraform 0.13 or above users, manual installation is not required anymore. 
   sudo adduser --ingroup docker k8s
   ssh-copy-id k8s@localhost
 
-  cd terraform/ # where main.tf resides
+  cd terraform/dev/ # dev || staging || production
 
   vi variables.tf
 
