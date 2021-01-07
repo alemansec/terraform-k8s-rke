@@ -1,5 +1,6 @@
 
-Provision a kubernetes cluster on baremetal
+Playing with terraform to provision a kubernetes cluster on baremetal
+
 
 # terraform setup
 
