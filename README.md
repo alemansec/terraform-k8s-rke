@@ -1,8 +1,17 @@
 
+# About
+
 Playing with terraform to provision a kubernetes cluster on baremetal
 
 
-# terraform setup
+# Setup
+
+## terraform setup
+
+I'll be adding those steps to my ansible playbooks (private repository), but here are the manual steps used to install terraform on the 'client'/managing machine.
+
+Later on, a single machine will run terraform commands, so deployments states are kept at a unique place, preventing conflicts.
+
 
 ```
   # (on 'client'/desktop machine) :
@@ -17,7 +26,7 @@ Playing with terraform to provision a kubernetes cluster on baremetal
   sudo apt-get install terraform
 ```
 
-# terraform provider for Rancher Kubernetes Engine
+### terraform provider for Rancher Kubernetes Engine
 
 
 https://github.com/rancher/terraform-provider-rke
@@ -25,7 +34,9 @@ https://github.com/rancher/terraform-provider-rke
 For terraform 0.13 or above users, manual installation is not required anymore. Provider will be downloaded by terraform init from terraform rke registry.
 
 
-# local test
+# local run
+
+Local deployment to validate the whole thing without deploying on the actual target machines.
 
 ```
   # 'k8s' user account will be used to provision k8s cluster on target machines:
@@ -46,6 +57,12 @@ For terraform 0.13 or above users, manual installation is not required anymore. 
 
 
 # TODO
+
+- [ ] deploy an entire cluster on suitable virtual machines
+
+- [ ] add k8s dashboard deployment to terraform files
+
+- [ ] deploy a test webserver service
 
 - [ ] use remote state ( https://www.terraform.io/docs/state/remote.html )
 
